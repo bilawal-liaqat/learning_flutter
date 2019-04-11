@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-
+import 'package:english_words/english_words.dart';
+import 'RandomWordState.dart';
 
 class Listing extends StatelessWidget{
 
@@ -9,12 +10,22 @@ class Listing extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+
+   final wordPair = WordPair.random();
+
     // TODO: implement build
     return ListView.builder(
-
-      itemCount: items.length,
+     // padding: const EdgeInsets.all(14.0),
+      itemCount: 40,
       itemBuilder: (BuildContext cntxt , int index){
-        return Text(items[index]);
+        return ListTile(
+          leading: Icon(Icons.nature),
+          title: RandomWords(),
+          onTap: (){
+            print(index);
+          },
+        );
+        //Text(wordPair.asCamelCase);
       },
 
     );
